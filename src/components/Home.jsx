@@ -3,7 +3,7 @@ import { IoMdLock } from "react-icons/io";
 import './Css/Home.css'
 
 
-const Home = ({modal}) => {
+const Home = () => {
   return (
     <div className="right" >
         <div className="right-wrapper">

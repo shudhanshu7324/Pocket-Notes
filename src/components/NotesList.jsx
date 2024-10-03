@@ -1,7 +1,7 @@
 import './Css/NotesList.css'
 
 
-const NotesList = ({createNotes,modal}) => {
+const NotesList = ({createNotes}) => {
   return (
     <div className='left-side'>
         <div className="left-heading">
