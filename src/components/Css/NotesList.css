@@ -1,0 +1,39 @@
+.left-side {
+  width: 40vw;
+  /* height: 100vh; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-heading {
+  font-weight: 500;
+  font-size: 2vw;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes{
+  height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.notes p{
+  width: 80%;
+}
+
+.add-btn {
+  position: fixed;
+  top: 80vh;
+  left: 20vw;
+  cursor: pointer;
+  display: flex;
+  border-radius: 50px;
+}
