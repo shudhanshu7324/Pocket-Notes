@@ -45,3 +45,12 @@ img{
   display: flex;
   border-radius: 50px;
 }
+
+
+.note-item {
+  border-radius: 5px;
+}
+
+.selected {
+  background-color: gray; /* Change background color for the selected note */
+}

@@ -7,10 +7,9 @@
 }
 
 .header{
-    height: 12vh;
+    height: 10vh;
     width: 100%;
     background-color: #001F8B;
-    padding: 5px;
 }
 
 .header-child{
@@ -18,7 +17,7 @@
 }
 
 .textarea-foot{
-    height: 28vh;
+    height: 30vh;
     background-color: #001F8B;
     width: 100%;
     display: flex;

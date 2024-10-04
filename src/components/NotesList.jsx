@@ -1,25 +1,50 @@
-import { useSelector } from 'react-redux'
-import './Css/NotesList.css'
-import { Link } from 'react-router-dom'
-import Title from './Title'
+import { useSelector } from "react-redux";
+import "./Css/NotesList.css";
+import { Link } from "react-router-dom";
+import Title from "./Title";
+import { useState } from "react";
 
-const NotesList = ({createNotes}) => {
-  const notes = useSelector((state) => state.notes.notes)
+const NotesList = ({ createNotes }) => {
+  const notes = useSelector((state) => state.notes.notes);
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
+
+  const showHighlight = (noteId) => {
+    setSelectedNoteId(noteId);
+  };
+
+  const resetHighlight = () => {
+    setSelectedNoteId(null);
+  };
+
+  
   return (
-    <div className='left-side'>
-        <div className="left-heading">
-          <Link to='/'><p>Pocket Notes</p></Link>
-        </div>
-        <div className="notes">
-          {
-            notes.map((note) => (
-              <Link style={{textDecoration:"none", color:"black"}} to={`/subnotes/${note.id}`}><Title key={note.id} title={note.title} color={note.color}/></Link>
-            ))
-          }  
-        </div>
-        <button onClick={createNotes} className='add-btn'><img src="/add.png" alt="add-img" /></button> 
+    <div className="left-side">
+      <div className="left-heading">
+        <Link to="/" onClick={resetHighlight}>
+          <p>Pocket Notes</p>
+        </Link>
+      </div>
+      <div className="notes">
+        {notes.map((note) => (
+          <Link
+            key={note.id}
+            style={{ textDecoration: "none", color: "black" }}
+            to={`/subnotes/${note.id}`}
+          >
+            <div
+              onClick={() => showHighlight(note.id)}
+              className={selectedNoteId === note.id ? "selected" : ""}
+            >
+              <Title title={note.title} color={note.color} />
+            </div>
+          </Link>
+        ))}
+      </div>
+      <button onClick={createNotes} className="add-btn">
+        <img src="/add.png" alt="add-img" />
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default NotesList
+export default NotesList;
