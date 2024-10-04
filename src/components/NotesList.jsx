@@ -3,7 +3,6 @@ import './Css/NotesList.css'
 import { Link } from 'react-router-dom'
 import Title from './Title'
 
-
 const NotesList = ({createNotes}) => {
   const notes = useSelector((state) => state.notes.notes)
   return (
@@ -13,13 +12,12 @@ const NotesList = ({createNotes}) => {
         </div>
         <div className="notes">
           {
-            notes.map((note,index) => (
-              <Title key={index} title={note.title} color={note.color}/>
+            notes.map((note) => (
+              <Link style={{textDecoration:"none", color:"black"}} to={`/subnotes/${note.id}`}><Title key={note.id} title={note.title} color={note.color}/></Link>
             ))
           }  
         </div>
-        <button onClick={createNotes} className='add-btn'><img src="/add.png" alt="add-img" /></button>
-        
+        <button onClick={createNotes} className='add-btn'><img src="/add.png" alt="add-img" /></button> 
     </div>
   )
 }

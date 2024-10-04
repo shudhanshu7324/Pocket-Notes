@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import '../components/Css/SubNotes.css';
 import { IoSend } from "react-icons/io5";
+import Title from '../components/Title';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const SubNotes = () => {
+const SubNotes = ({}) => {
     const [text, setText] = useState('');
 
     const handleText = (e) => {
@@ -10,21 +13,26 @@ const SubNotes = () => {
     };
 
     const handleKeyPress = (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {  // Detect 'Enter' key without shift
+        if (e.key === 'Enter' && !e.shiftKey) {  
             e.preventDefault();
-            handleSubmit();  // Call submit function directly
+            handleSubmit(); 
         }
     };
 
     const handleSubmit = () => {
-        if (text.trim().length === 0) return;  // Ensure non-empty text
+        if (text.trim().length === 0) return; 
         console.log('Text submitted:', text);
-        setText('');  // Clear the textarea after submission
+        setText(''); 
     };
+
+    const {id} = useParams();
+    const note = useSelector((state)=>state.notes.notes.find(noteItem => noteItem.id === Number(id)))
 
     return (
         <div className='subnotes'>
-            <div className="header"></div>
+            <div className="header" style={{color:"white"}}>
+            <div className='header-child'><Title title={note.title} color={note.color}/></div>
+            </div>
             <div className="notes-content"></div>
             <div className="textarea-foot">
                 <textarea 
@@ -33,12 +41,12 @@ const SubNotes = () => {
                     id="text" 
                     value={text} 
                     onChange={handleText} 
-                    onKeyDown={handleKeyPress}  // Add the key press listener
+                    onKeyDown={handleKeyPress} 
                 ></textarea>
             </div>
             <button 
-                className={`send ${text.length > 0 ? 'enabled' : 'disabled'}`}  // Add conditional class
-                onClick={handleSubmit}  // Submit on button click
+                className={`send ${text.length > 0 ? 'enabled' : 'disabled'}`} 
+                onClick={handleSubmit}  
                 disabled={text.length === 0}
             >
                 <IoSend />

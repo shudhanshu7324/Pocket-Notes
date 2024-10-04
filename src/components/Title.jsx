@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Css/Title.css";
-const Title = ({title,color}) => {
+const Title = ({title="Not found",color="black"}) => {
 
     const [logoName,setLogoName] = useState('')
 

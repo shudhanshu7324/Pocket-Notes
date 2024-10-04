@@ -11,7 +11,16 @@ const CreateNote = ({setModal}) => {
   const dispatch = useDispatch()
 
   const handleNoteTitle = () => {
+    if (!notesTitle.trim()) {
+      alert("Please enter a group name.");
+      return;
+    }
+    if (!selectedColor) {
+      alert("Please select a color.");
+      return;
+    }
     const titleData = {
+        id: Date.now(),
         title: notesTitle,
         color: selectedColor
     }

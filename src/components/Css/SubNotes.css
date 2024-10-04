@@ -7,13 +7,18 @@
 }
 
 .header{
-    height: 10vh;
+    height: 12vh;
     width: 100%;
     background-color: #001F8B;
+    padding: 5px;
+}
+
+.header-child{
+    margin-left: -25px;
 }
 
 .textarea-foot{
-    height: 30vh;
+    height: 28vh;
     background-color: #001F8B;
     width: 100%;
     display: flex;

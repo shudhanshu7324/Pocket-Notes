@@ -22,7 +22,7 @@ const App = () => {
       <NotesList createNotes={() => setModal(true)}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/subnotes" element={<SubNotes/>} />
+          <Route path="/subnotes/:id" element={<SubNotes/>} />
         </Routes>
       </Router>
       {modal && <CreateNote setModal={setModal}/>}
