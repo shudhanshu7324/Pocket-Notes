@@ -18,8 +18,8 @@ const App = () => {
   return (
     <div onClick={closeModal} className="background">
       {modal && <div className="overlay"></div>}
-      <NotesList createNotes={() => setModal(true)}/>
       <Router>
+      <NotesList createNotes={() => setModal(true)}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/subnotes" element={<SubNotes/>} />

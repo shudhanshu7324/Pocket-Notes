@@ -10,17 +10,23 @@
 .left-heading {
   font-weight: 500;
   font-size: 2vw;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.left-heading a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
 .notes{
-  height: 80vh;
+  height: 85vh;
   overflow-y: auto;
   display: flex;
-  align-items: center;
   padding-top: 20px;
   flex-direction: column;
 }
@@ -35,8 +41,8 @@ img{
 
 .add-btn {
   position: fixed;
-  top: 80vh;
-  left: 22vw;
+  top: 83vh;
+  left: 20vw;
   cursor: pointer;
   display: flex;
   border-radius: 50px;
