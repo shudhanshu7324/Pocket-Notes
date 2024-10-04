@@ -1,14 +1,22 @@
 import { useState } from "react";
 import "../Css/CreateNote.css";
+import { useDispatch } from "react-redux";
+import { addToNotes } from "../../slices/notesslice";
 
-const CreateNote = () => {
+const CreateNote = ({setModal}) => {
   const [notesTitle, setNotesTitle] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const colors = ["#B38BFA", "#FF79F2", "#43E6FC", "#F19576", "#0047FF", "#6691FF"];
 
+  const dispatch = useDispatch()
+
   const handleNoteTitle = () => {
-    console.log(notesTitle);
-    console.log(selectedColor);
+    const titleData = {
+        title: notesTitle,
+        color: selectedColor
+    }
+    dispatch(addToNotes(titleData))
+    setModal(false)
   }
 
   return (

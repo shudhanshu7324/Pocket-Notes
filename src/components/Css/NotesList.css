@@ -1,6 +1,5 @@
 .left-side {
   width: 40vw;
-  /* height: 100vh; */
   overflow-x: hidden;
   overflow-y: auto;
   background-color: white;
@@ -21,18 +20,23 @@
   height: 80vh;
   overflow-y: auto;
   display: flex;
-  justify-content: center;
+  align-items: center;
   padding-top: 20px;
+  flex-direction: column;
 }
 
 .notes p{
   width: 80%;
 }
 
+img{
+  width: 80px;
+}
+
 .add-btn {
   position: fixed;
   top: 80vh;
-  left: 20vw;
+  left: 22vw;
   cursor: pointer;
   display: flex;
   border-radius: 50px;
