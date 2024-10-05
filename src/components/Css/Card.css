@@ -17,7 +17,7 @@
 }
 
 .card-content{
-    font-size: 1vw;
+    font-size: 18px;
     font-weight: 400;
 }
 
@@ -29,4 +29,5 @@
     position: sticky;
     float: right;
     font-weight: 500;
+    font-size: 18px;
   }

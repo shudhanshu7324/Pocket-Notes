@@ -47,5 +47,8 @@
   }
 
 
-
-  
+@media (max-width : 500px){
+  .right{
+    visibility: hidden;
+  }
+}

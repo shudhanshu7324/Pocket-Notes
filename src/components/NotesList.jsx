@@ -40,9 +40,8 @@ const NotesList = ({ createNotes }) => {
           </Link>
         ))}
       </div>
-      <button onClick={createNotes} className="add-btn">
-        <img src="/add.png" alt="add-img" />
-      </button>
+        <img src="/add.png" alt="add-img" className="add-btn" onClick={createNotes}/>
+      
     </div>
   );
 };

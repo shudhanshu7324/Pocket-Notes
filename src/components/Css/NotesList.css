@@ -1,27 +1,29 @@
 .left-side {
   width: 40vw;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: white;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .left-heading {
   font-weight: 500;
-  font-size: 2vw;
+  font-size: 35px;
   height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.left-heading a{
+.left-heading a {
   text-decoration: none;
   color: black;
 }
 
-.notes{
+.notes {
   height: 85vh;
   overflow-y: auto;
   display: flex;
@@ -29,28 +31,22 @@
   flex-direction: column;
 }
 
-.notes p{
+.notes p {
   width: 80%;
 }
 
-img{
-  width: 80px;
-}
-
 .add-btn {
+  width: 80px;
   position: fixed;
-  top: 83vh;
+  top: calc(100vh - 120px);
   left: 20vw;
-  cursor: pointer;
-  display: flex;
-  border-radius: 50px;
 }
-
 
 .note-item {
   border-radius: 5px;
 }
 
 .selected {
-  background-color: #2F2F2F2B;
+  background-color: #2f2f2f2b;
+  border-radius: 16px;
 }
