@@ -31,11 +31,10 @@ const SubNotes = ({}) => {
         time: time,
       };
   
-      // Dispatch the action to add the new subnote
       dispatch(addSubNote({ id: Number(id), subNote: newSubNote }));
   
       console.log("SubNote created:", newSubNote);
-      setText(""); // Clear the text input
+      setText(""); 
   };
 
   const { id } = useParams();
@@ -55,10 +54,7 @@ const SubNotes = ({}) => {
       <div className="notes-content">
         {note?.subNotes?.map((subNote, index) => (
           <div key={index} className="note-item">
-            {subNote.text}
-            <div className="date-time">
-              {subNote.date} <div className="bullet"></div> {subNote.time} {/* Display attached date and time */}
-            </div>
+            <Card text={subNote.text} date={subNote.date} time={subNote.time}/>
           </div>
         ))}
       </div>
