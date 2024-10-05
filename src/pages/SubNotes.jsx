@@ -48,7 +48,7 @@ const SubNotes = ({}) => {
     <div className="subnotes">
       <div className="header" style={{ color: "white" }}>
         <div className="header-child">
-          <Title title={note.title} color={note.color} />
+          {note &&  <Title title={note.title} color={note.color} />}
         </div>
       </div>
       <div className="notes-content">
