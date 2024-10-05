@@ -22,7 +22,8 @@ const CreateNote = ({setModal}) => {
     const titleData = {
         id: Date.now(),
         title: notesTitle,
-        color: selectedColor
+        color: selectedColor,
+        subNotes: []
     }
     dispatch(addToNotes(titleData))
     setModal(false)
