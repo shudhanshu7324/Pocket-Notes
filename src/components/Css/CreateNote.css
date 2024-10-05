@@ -1,4 +1,4 @@
-.create-notes{
+.create-notes {
     height: 40vh;
     width: 50vw;
     background-color: white;
@@ -11,63 +11,63 @@
     padding-left: 40px;
 }
 
-h1{
+h1 {
     font-weight: 500;
     font-size: 2.2vw;
 }
 
-h2{
+h2 {
     font-weight: 500;
     font-size: 1.8vw;
 }
 
-.grp-name{
+.grp-name {
     display: flex;
     gap: 40px;
     margin-top: 20px;
     align-items: center;
 }
 
-.grp-name input{
+.grp-name input {
     padding: 5px 20px;
     border-radius: 15px;
     color: #979797;
-    border:2px solid #CCCCCC;
+    border: 2px solid #CCCCCC;
     outline: none;
-    font-size: 1.3vw;
+    font-size: 23px;
     width: 60%;
 }
 
-.color-choose{
+.color-choose {
     display: flex;
     margin-top: 40px;
     gap: 50px;
     align-items: center;
 }
 
-.color{
+.color {
     display: flex;
     gap: 10px;
 }
 
-.color div{
+.color div {
     height: 40px;
     width: 40px;
     border-radius: 20px;
     cursor: pointer;
 }
 
-.color div:hover{
+.color div:hover {
     transform: scale(1.1);
 }
 
-.create-btn{
+.create-btn {
     background-color: #001F8B;
     color: white;
     font-weight: 400;
     font-size: 20px;
     border: none;
-    padding: 5px 30px 5px 30px;
+    padding: 5px 30px;
     border-radius: 10px;
     margin-top: 25px;
     margin-left: 80%;
@@ -76,4 +76,56 @@ h2{
 
 .color-option.selected {
     border: 2px solid #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .create-notes {
+        height: 250px;
+        width: 70vw;
+        top: 30%;
+        left: 14%;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    h1 {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    .grp-name input{
+        width: 150px;
+        height: 25px;
+        font-size: 10px;
+    }
+
+    .grp-name {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .color-choose {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .color div {
+        height: 18px;
+        width: 18px;
+    }
+
+    .create-btn {
+        font-size: 16px;
+        margin-left: 45px;
+        margin-top: 40px;
+        height: 32px;
+        width: 180px;
+        text-align: center;
+    }
 }

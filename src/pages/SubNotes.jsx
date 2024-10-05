@@ -1,80 +1,78 @@
-import { useState } from "react";
-import "../components/Css/SubNotes.css";
-import { IoSend } from "react-icons/io5";
-import Title from "../components/Title";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import useDateTime from "../hooks/useDateTime";
+import Card from "../components/Card";
 import { useSelector, useDispatch } from "react-redux";
 import { addSubNote } from "../slices/notesslice";
-import Card from "../components/Card";
-import useDateTime from "../hooks/useDateTime";
+import { IoSend } from "react-icons/io5";
+import "../components/Css/SubNotes.css";
+import { useState } from "react";
+import Title from "../components/Title";
+import useWindowWidth from "../hooks/useWindowWidth"; // Import the hook
 
-const SubNotes = ({}) => {
-  const [text, setText] = useState("");
+const SubNotes = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const { date, time } = useDateTime();
+  const dispatch = useDispatch();
+  const notes = useSelector((state) => state.notes.notes);
+  const currentNote = notes.find((note) => note.id === parseInt(id));
+  const width = useWindowWidth();
+  const isMobile = width < 768;
 
-  const handleText = (e) => {
-    setText(e.target.value);
+  const [subNoteText, setSubNoteText] = useState('');
+
+  if (!currentNote) {
+    return <div>Note not found</div>;
+  }
+
+  const handleSend = () => {
+    if (!subNoteText.trim()) return;
+    const newSubNote = {
+      text: subNoteText,
+      date,
+      time,
+    };
+    dispatch(addSubNote({ id: currentNote.id, subNote: newSubNote }));
+    setSubNoteText('');
   };
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit();
+      handleSend();
     }
   };
 
-  const handleSubmit = () => {
-    if (text.trim().length === 0) return;
-    const newSubNote = {
-        text: text,
-        date: date,
-        time: time,
-      };
-  
-      dispatch(addSubNote({ id: Number(id), subNote: newSubNote }));
-  
-      console.log("SubNote created:", newSubNote);
-      setText(""); 
-  };
-
-  const { id } = useParams();
-  const note = useSelector((state) =>
-    state.notes.notes.find((noteItem) => noteItem.id === Number(id))
-  );
-  const dispatch = useDispatch();
-
-
   return (
     <div className="subnotes">
-      <div className="header" style={{ color: "white" }}>
-        <div className="header-child">
-          {note &&  <Title title={note.title} color={note.color} />}
-        </div>
+      <div className="header">
+      {isMobile && (
+        <button onClick={() => navigate(-1)} className="back-button">
+          ←
+        </button>
+      )}
+        <div className="header-content"><Title title={currentNote.title} color={currentNote.color} /></div>
       </div>
       <div className="notes-content">
-        {note?.subNotes?.map((subNote, index) => (
-          <div key={index} className="note-item">
-            <Card text={subNote.text} date={subNote.date} time={subNote.time}/>
-          </div>
+        {currentNote.subNotes.map((subNote, index) => (
+          <Card key={index} text={subNote.text} date={subNote.date} time={subNote.time} />
         ))}
       </div>
       <div className="textarea-foot">
         <textarea
           placeholder="Enter your text here..........."
-          name="text"
-          id="text"
-          value={text}
-          onChange={handleText}
-          onKeyDown={handleKeyPress}
+          value={subNoteText}
+          onChange={(e) => setSubNoteText(e.target.value)}
+          onKeyPress={handleKeyPress}
         ></textarea>
+        <button
+          className={`send ${subNoteText.trim() ? 'enabled' : ''}`}
+          onClick={handleSend}
+          disabled={!subNoteText.trim()}
+        >
+          <IoSend />
+        </button>
       </div>
-      <button
-        className={`send ${text.length > 0 ? "enabled" : "disabled"}`}
-        onClick={handleSubmit}
-        disabled={text.length === 0}
-      >
-        <IoSend />
-      </button>
     </div>
   );
 };

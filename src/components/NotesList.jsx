@@ -16,7 +16,6 @@ const NotesList = ({ createNotes }) => {
     setSelectedNoteId(null);
   };
 
-  
   return (
     <div className="left-side">
       <div className="left-heading">
@@ -40,8 +39,7 @@ const NotesList = ({ createNotes }) => {
           </Link>
         ))}
       </div>
-        <img src="/add.png" alt="add-img" className="add-btn" onClick={createNotes}/>
-      
+      <img src="/add.png" alt="add-img" className="add-btn" onClick={createNotes} />
     </div>
   );
 };

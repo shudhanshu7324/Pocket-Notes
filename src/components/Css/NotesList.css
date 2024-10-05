@@ -28,6 +28,7 @@
   overflow-y: auto;
   display: flex;
   padding-top: 20px;
+  padding-left: 40px;
   flex-direction: column;
 }
 
@@ -49,4 +50,23 @@
 .selected {
   background-color: #2f2f2f2b;
   border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .left-side {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .add-btn {
+    left: 75%;
+    top: auto;
+    bottom: 40px;
+  }
+
+  .left-heading{
+    justify-content: flex-start;
+    margin-left: 50px;
+  }
 }
