@@ -5,9 +5,12 @@ import Title from "../components/Title";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addSubNote } from "../slices/notesslice";
+import Card from "../components/Card";
+import useDateTime from "../hooks/useDateTime";
 
 const SubNotes = ({}) => {
   const [text, setText] = useState("");
+  const { date, time } = useDateTime();
 
   const handleText = (e) => {
     setText(e.target.value);
@@ -22,9 +25,17 @@ const SubNotes = ({}) => {
 
   const handleSubmit = () => {
     if (text.trim().length === 0) return;
-    dispatch(addSubNote({ id: Number(id), subNote: text }));
-    console.log("Text submitted:", text);
-    setText("");
+    const newSubNote = {
+        text: text,
+        date: date,
+        time: time,
+      };
+  
+      // Dispatch the action to add the new subnote
+      dispatch(addSubNote({ id: Number(id), subNote: newSubNote }));
+  
+      console.log("SubNote created:", newSubNote);
+      setText(""); // Clear the text input
   };
 
   const { id } = useParams();
@@ -32,6 +43,7 @@ const SubNotes = ({}) => {
     state.notes.notes.find((noteItem) => noteItem.id === Number(id))
   );
   const dispatch = useDispatch();
+
 
   return (
     <div className="subnotes">
@@ -43,7 +55,10 @@ const SubNotes = ({}) => {
       <div className="notes-content">
         {note?.subNotes?.map((subNote, index) => (
           <div key={index} className="note-item">
-            {subNote}
+            {subNote.text}
+            <div className="date-time">
+              {subNote.date} <div className="bullet"></div> {subNote.time} {/* Display attached date and time */}
+            </div>
           </div>
         ))}
       </div>
