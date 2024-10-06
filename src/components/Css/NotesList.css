@@ -28,7 +28,6 @@
   overflow-y: auto;
   display: flex;
   padding-top: 20px;
-  padding-left: 40px;
   flex-direction: column;
 }
 

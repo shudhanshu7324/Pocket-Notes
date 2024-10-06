@@ -33,6 +33,7 @@ const NotesList = ({ createNotes }) => {
             <div
               onClick={() => showHighlight(note.id)}
               className={selectedNoteId === note.id ? "selected" : ""}
+              style={{paddingLeft:"30px"}}
             >
               <Title title={note.title} color={note.color} />
             </div>
