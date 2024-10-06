@@ -15,7 +15,7 @@
   height: 15vh;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  align-items: center;
 }
 
 .left-heading a {
@@ -67,10 +67,10 @@
   .left-heading{
     justify-content: flex-start;
     margin-left: 50px;
-    height: 10vh;
+    height: 12vh;
   }
 
   .notes{
-    height: 90vh;
+    height: 88vh;
   }
 }
