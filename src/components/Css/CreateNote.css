@@ -96,7 +96,7 @@ h2 {
     }
 
     h2 {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .grp-name input{
@@ -107,12 +107,12 @@ h2 {
 
     .grp-name {
         flex-direction: row;
-        gap: 20px;
+        gap: 10px;
     }
 
     .color-choose {
         flex-direction: row;
-        gap: 10px;
+        gap: 7px;
     }
 
     .color div {
@@ -124,7 +124,7 @@ h2 {
 
     .create-btn {
         font-size: 16px;
-        margin-left: 30px;
+        margin-left: 28px;
         margin-top: 30px;
         height: 32px;
         width: 180px;
