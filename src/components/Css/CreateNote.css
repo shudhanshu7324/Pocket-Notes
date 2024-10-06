@@ -107,12 +107,12 @@ h2 {
 
     .grp-name {
         flex-direction: row;
-        gap: 10px;
+        gap: 7px;
     }
 
     .color-choose {
         flex-direction: row;
-        gap: 8px;
+        gap: 6px;
     }
 
     .color div {
