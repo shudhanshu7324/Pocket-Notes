@@ -47,7 +47,7 @@ h2 {
 
 .color {
     display: flex;
-    gap: 10px;
+    gap: 6px;
 }
 
 .color div {
@@ -102,7 +102,7 @@ h2 {
     .grp-name input{
         width: 150px;
         height: 25px;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .grp-name {
@@ -112,7 +112,7 @@ h2 {
 
     .color-choose {
         flex-direction: row;
-        gap: 4px;
+        gap: 7px;
     }
 
     .color div {
