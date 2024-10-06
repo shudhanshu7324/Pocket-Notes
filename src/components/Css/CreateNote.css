@@ -112,7 +112,7 @@ h2 {
 
     .color-choose {
         flex-direction: row;
-        gap: 6px;
+        gap: 4px;
     }
 
     .color div {

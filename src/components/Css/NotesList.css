@@ -59,9 +59,10 @@
   }
 
   .add-btn {
-    left: 75%;
+    left: 72%;
     top: auto;
-    bottom: 40px;
+    bottom: 50px;
+    width: 75px;
   }
 
   .left-heading{
